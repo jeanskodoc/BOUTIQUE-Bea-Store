@@ -536,11 +536,11 @@
         msg += '\n📦 *Articles*\n';
         let total = 0;
         items.forEach(i => { msg += `• ${i.name} (${i.quantity} x ${(+i.price).toLocaleString()} FCFA) = ${(i.quantity*+i.price).toLocaleString()} FCFA\n`; total += i.quantity * +i.price; });
-        msg += `\n💰 Sous-total: ${total.toLocaleString()} FCFA\n🚚 Livraison: 2 000 FCFA\n💵 TOTAL: ${(total+2000).toLocaleString()} FCFA\n\n📅 ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}`;
+        msg += `\n💰 Sous-total: ${total.toLocaleString()} FCFA\n🚚 Livraison: 1 000 FCFA\n💵 TOTAL: ${(total+2000).toLocaleString()} FCFA\n\n📅 ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}`;
         window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`,'_blank');
     });
 
-    $('#pay-esodi').addEventListener('click', () => { window.open('https://jeanskodoc.github.io/Carte-virtuelle-/','_blank'); notify('Portail ESODI ouvert','success'); });
+    $('#pay-esodi').addEventListener('click', () => { window.open('https://cvl2togo.netlify.app/','_blank'); notify('Portail ESODI ouvert','success'); });
     $('#pay-tmoney').addEventListener('click', () => notify(`Transférez à 98 48 99 74 via T-Money / Yas`,'success'));
     $('#pay-flooz').addEventListener('click', () => notify(`Transférez à 98 48 99 74 via Flooz`,'success'));
 
