@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <meta name="description" content="Boutique KOLA - Système intégré de gestion des ventes, commandes et inventaire">
+    <meta name="description" content="RANCOVEX - Système intégré de gestion des ventes, commandes et inventaire">
     <meta name="theme-color" content="#7C3AED">
     <title>RANCOVEX - Système Intégré</title>
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
@@ -42,9 +42,10 @@
             :root{
                 --gray-50:#18181B;--gray-100:#27272A;--gray-200:#3F3F46;--gray-300:#52525B;--gray-400:#71717A;
                 --gray-500:#A1A1AA;--gray-600:#D4D4D8;--gray-700:#E4E4E7;--gray-800:#F4F4F5;--gray-900:#FAFAFA;
-                --text-primary:#F9FAFB;--text-secondary:#D1D5DB;--text-tertiary:#9CA3AF;--text-light:#6B7280;
-                --bg-body:linear-gradient(135deg,#0f0f13 0%,#1a1a24 100%);
-                --bg-panel:#1f1f2b;--bg-input:#2a2a3a;--border-panel:#3a3a4e;--bg-journal:#2a2a3a;
+                --text-primary:#F1F5F9;--text-secondary:#CBD5E1;--text-tertiary:#94A3B8;--text-light:#64748B;
+                --bg-body:linear-gradient(135deg,#0b0b12 0%,#141420 100%);
+                --bg-panel:#1c1c2e;--bg-input:#252540;--border-panel:#2e2e4a;--bg-journal:#252540;
+                --primary-ultra-light:#1e1b4b;
             }
         }
 
@@ -58,7 +59,7 @@
         .auth-logo{width:clamp(60px,15vw,80px);height:clamp(60px,15vw,80px);background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:clamp(28px,7vw,40px);color:#fff;box-shadow:var(--shadow-glow)}
         .auth-title{font-size:var(--font-2xl);background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px}
         .auth-error{color:var(--danger);margin-top:15px;font-size:var(--font-xs)}
-        .auth-info{margin-top:15px;font-size:var(--font-xs);color:var(--text-secondary);text-align:left;background:var(--gray-100);padding:12px;border-radius:var(--radius-md)}
+        .auth-info{margin-top:15px;font-size:var(--font-xs);color:var(--text-secondary);text-align:left;background:var(--bg-journal);padding:12px;border-radius:var(--radius-md)}
         .auth-info p{margin:5px 0;color:var(--text-secondary)}
         .auth-info strong{color:var(--text-primary)}
 
@@ -75,7 +76,7 @@
         .user-role{font-size:9px;opacity:.8;color:var(--text-white-tertiary)}
         .btn-logout{background:rgba(255,255,255,.2);color:var(--text-white);border:none;padding:8px 16px;border-radius:var(--radius-full);cursor:pointer;transition:var(--transition-base);display:flex;align-items:center;gap:8px;font-weight:500;font-size:var(--font-xs);backdrop-filter:blur(10px)}
 
-        .main-tabs{display:flex;gap:8px;background:var(--gray-200);padding:8px;border-radius:var(--radius-xl);margin-bottom:clamp(1rem,3vw,1.5rem);flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+        .main-tabs{display:flex;gap:8px;background:var(--gray-100);padding:8px;border-radius:var(--radius-xl);margin-bottom:clamp(1rem,3vw,1.5rem);flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
         .main-tab{flex:1;min-width:100px;padding:clamp(10px,2.5vw,12px) clamp(12px,3vw,16px);background:transparent;border:none;border-radius:var(--radius-lg);font-weight:600;font-size:var(--font-sm);color:var(--text-secondary);cursor:pointer;transition:var(--transition-base);display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
         .main-tab:hover:not(.disabled){background:rgba(124,58,237,.1);color:var(--primary)}
         .main-tab.active{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--text-white);box-shadow:var(--shadow-md)}
@@ -102,12 +103,12 @@
         .dashboard-card .value{font-size:var(--font-xl);font-weight:bold;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
         .panel{background:var(--bg-panel);border-radius:var(--radius-xl);padding:var(--card-padding);margin-bottom:clamp(1rem,3vw,1.5rem);box-shadow:var(--shadow-md);border:1px solid var(--border-panel)}
-        .panel-title{font-size:var(--font-lg);margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--gray-200);display:flex;align-items:center;gap:10px;color:var(--primary-dark);flex-wrap:wrap}
+        .panel-title{font-size:var(--font-lg);margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--border-panel);display:flex;align-items:center;gap:10px;color:var(--text-primary);flex-wrap:wrap}
 
         .form-group{margin-bottom:15px}
         label{display:block;margin-bottom:6px;font-weight:600;font-size:var(--font-sm);color:var(--text-secondary)}
         input,select,textarea{width:100%;padding:clamp(10px,2.5vw,12px);border:2px solid var(--gray-200);border-radius:var(--radius-md);font-size:var(--font-sm);transition:var(--transition-fast);font-family:'Inter',sans-serif;color:var(--text-primary);background:var(--bg-input)}
-        input::placeholder,textarea::placeholder{color:var(--text-light)}
+        input::placeholder,textarea::placeholder{color:var(--text-tertiary)}
         input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
 
         .btn{padding:clamp(10px,2.5vw,12px) clamp(16px,4vw,20px);border:none;border-radius:var(--radius-md);font-weight:600;cursor:pointer;transition:var(--transition-base);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:var(--font-sm);color:var(--text-white)}
@@ -118,12 +119,12 @@
         .btn-success{background:linear-gradient(135deg,var(--success),var(--success-dark))}
         .btn-sm{padding:6px 12px;font-size:var(--font-xs)}
 
-        .data-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:15px;border-top:1px solid var(--gray-200)}
+        .data-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:15px;border-top:1px solid var(--border-panel)}
         .data-actions .btn{flex:1;min-width:100px}
 
         .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(1rem,3vw,1.5rem)}
         .qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(140px,100%),1fr));gap:clamp(.75rem,2vw,1rem);max-height:500px;overflow-y:auto;padding:5px}
-        .qr-card{background:var(--gray-100);padding:clamp(10px,2.5vw,12px);border-radius:var(--radius-lg);text-align:center;position:relative;transition:var(--transition-base);border:1px solid var(--gray-200)}
+        .qr-card{background:var(--bg-journal);padding:clamp(10px,2.5vw,12px);border-radius:var(--radius-lg);text-align:center;position:relative;transition:var(--transition-base);border:1px solid var(--border-panel)}
         .qr-card p{color:var(--text-secondary);margin-top:8px;font-size:var(--font-xs);font-weight:500}
         .qr-card .qr-name{font-weight:700;color:var(--text-primary)}
         .qr-card .qr-price{color:var(--primary);font-weight:bold}
@@ -135,8 +136,8 @@
         @keyframes pulse{50%{border-color:var(--secondary)}}
         .scanner-controls{display:flex;gap:10px;margin-top:15px;justify-content:center;flex-wrap:wrap}
 
-        .sale-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--gray-200);flex-wrap:wrap;gap:8px;color:var(--text-primary)}
-        .sale-total{margin-top:15px;padding-top:15px;border-top:2px solid var(--gray-200);font-size:var(--font-lg);font-weight:bold;text-align:right;color:var(--primary)}
+        .sale-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border-panel);flex-wrap:wrap;gap:8px;color:var(--text-primary)}
+        .sale-total{margin-top:15px;padding-top:15px;border-top:2px solid var(--border-panel);font-size:var(--font-lg);font-weight:bold;text-align:right;color:var(--primary)}
 
         .sales-journal{max-height:300px;overflow-y:auto}
         .journal-entry{padding:12px;background:var(--bg-journal);border-radius:var(--radius-md);margin-bottom:10px;border-left:3px solid var(--primary);color:var(--text-secondary)}
@@ -144,8 +145,8 @@
 
         .table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch}
         table{width:100%;border-collapse:collapse;min-width:500px}
-        th,td{padding:clamp(8px,2vw,12px);text-align:left;border-bottom:1px solid var(--gray-200);font-size:var(--font-sm)}
-        th{background:linear-gradient(135deg,var(--primary-ultra-light),var(--gray-100));font-weight:600;color:var(--primary-dark)}
+        th,td{padding:clamp(8px,2vw,12px);text-align:left;border-bottom:1px solid var(--border-panel);font-size:var(--font-sm)}
+        th{background:linear-gradient(135deg,var(--primary-ultra-light),var(--gray-100));font-weight:600;color:var(--text-primary)}
         td{color:var(--text-secondary)}
         td strong{color:var(--text-primary)}
         tr:hover td{background:rgba(124,58,237,.05)}
@@ -154,7 +155,8 @@
 
         .categories{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
         .category-btn{padding:6px 12px;background:var(--gray-200);border:none;border-radius:var(--radius-full);cursor:pointer;transition:var(--transition-fast);font-size:var(--font-xs);font-weight:500;color:var(--text-secondary)}
-        .category-btn:hover{background:var(--primary-ultra-light);color:var(--primary)}
+        @media(prefers-color-scheme:light){.category-btn:hover{background:var(--primary-ultra-light);color:var(--primary)}}
+        @media(prefers-color-scheme:dark){.category-btn{background:#2e2e4a;color:#CBD5E1}.category-btn:hover{background:var(--primary-dark);color:#fff}}
         .category-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--text-white)}
 
         .alert{padding:clamp(10px,2.5vw,12px);border-radius:var(--radius-md);margin-bottom:15px;display:flex;align-items:center;gap:10px;font-size:var(--font-sm)}
@@ -162,26 +164,130 @@
         .alert-warning{background:#FEF3C7;color:#92400E;border-left:4px solid var(--warning)}
         .alert-danger{background:#FEE2E2;color:#991B1B;border-left:4px solid var(--danger)}
         .alert-info{background:#DBEAFE;color:#1E40AF;border-left:4px solid var(--info)}
+        @media(prefers-color-scheme:dark){
+            .alert-success{background:#064E3B;color:#A7F3D0}
+            .alert-warning{background:#78350F;color:#FDE68A}
+            .alert-danger{background:#7F1D1D;color:#FECACA}
+            .alert-info{background:#1E3A5F;color:#BFDBFE}
+        }
 
         .toast{position:fixed;bottom:20px;right:20px;left:20px;background:var(--gray-800);color:var(--text-white);padding:12px 16px;border-radius:var(--radius-md);z-index:1000;animation:slideIn .3s ease;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-lg);max-width:400px;margin:0 auto}
         @keyframes slideIn{from{transform:translateX(100%);opacity:0}}
         @media(max-width:480px){.toast{left:16px;right:16px;bottom:16px}}
 
-        .app-footer{text-align:center;margin-top:2rem;padding:1rem;font-size:var(--font-xs);color:var(--text-tertiary);border-top:1px solid var(--gray-200)}
+        .app-footer{text-align:center;margin-top:2rem;padding:1rem;font-size:var(--font-xs);color:var(--text-tertiary);border-top:1px solid var(--border-panel)}
+
+        /* ─── Tablets & small desktops ─── */
+        @media(max-width:900px){
+            .auth-box{max-width:400px}
+            .header{padding:clamp(.75rem,2.5vw,1rem)}
+            .logo{width:40px;height:40px;font-size:clamp(18px,4vw,22px)}
+            .brand h1{font-size:clamp(1rem,3.5vw,1.2rem)}
+        }
 
         @media(max-width:768px){
-            .grid-2{grid-template-columns:1fr}.dashboard-cards{grid-template-columns:repeat(2,1fr)}
-            .header{flex-direction:column;text-align:center}.logo-section{justify-content:center}
+            .grid-2{grid-template-columns:1fr}
+            .dashboard-cards{grid-template-columns:repeat(2,1fr)}
+            .header{flex-direction:column;text-align:center;gap:10px}
+            .logo-section{justify-content:center}
             .data-actions{flex-direction:column}.data-actions .btn{width:100%}
+            .header-actions{gap:8px;justify-content:center}
+            .user-info{font-size:11px;padding:4px 10px}
+            .btn-logout{font-size:11px;padding:6px 12px}
+            #video{min-height:220px;max-height:320px}
+            #scan-region{height:130px;width:75%}
+            .qr-grid{max-height:400px;grid-template-columns:repeat(auto-fill,minmax(min(120px,100%),1fr))}
+            .table-responsive{font-size:var(--font-xs)}
+            th,td{padding:6px 8px;font-size:var(--font-xs)}
         }
         @media(max-width:560px){
-            .dashboard-cards{grid-template-columns:1fr}.scanner-controls{flex-direction:column}
+            .dashboard-cards{grid-template-columns:1fr}
+            .scanner-controls{flex-direction:column}
             .scanner-controls .btn{width:100%}
+            .main-tab{min-width:80px;padding:8px 10px;font-size:11px;gap:4px}
+            .main-tab i{font-size:12px}
+            .panel{padding:clamp(.75rem,2vw,1rem)}
+            .sales-journal{max-height:220px}
+            .journal-entry{padding:10px;font-size:var(--font-xs)}
+            .chart-container{height:200px}
+            .lock-message{padding:1.2rem;max-width:300px}
+            .auth-box{padding:1.2rem}
         }
+
+        /* ─── Very small screens (<400px) ─── */
+        @media(max-width:400px){
+            .dashboard-card{padding:clamp(.6rem,4vw,.8rem)}
+            .dashboard-card h3{font-size:10px}
+            .dashboard-card .value{font-size:var(--font-base)}
+            .main-tab{min-width:60px;padding:6px 8px;font-size:10px}
+            .main-tabs{gap:4px;padding:6px}
+            .brand h1{font-size:.95rem}
+            .brand p{font-size:10px}
+            .logo{width:34px;height:34px;font-size:16px}
+            .user-info{font-size:10px;padding:3px 8px}
+            .btn-logout{font-size:10px;padding:5px 10px}
+            .btn{padding:8px 12px;font-size:12px}
+            input,select,textarea{padding:8px 10px}
+            .categories{gap:5px}
+            .category-btn{padding:4px 8px;font-size:10px}
+            .qr-grid{grid-template-columns:repeat(auto-fill,minmax(min(100px,100%),1fr));gap:.5rem;max-height:350px}
+            .qr-card{padding:8px}
+            .qr-card .qr-name{font-size:11px}
+            .qr-card .qr-price{font-size:11px}
+            .sold-badge{width:22px;height:22px;font-size:7px}
+        }
+
+        /* ─── Landscape mobile ─── */
+        @media(max-height:500px) and (orientation:landscape){
+            .auth-container{padding:10px}
+            .auth-box{padding:1rem;max-width:90vw}
+            .auth-logo{width:40px;height:40px;font-size:18px;margin-bottom:10px}
+            .auth-title{font-size:1.1rem;margin-bottom:10px}
+            .auth-info{font-size:10px;padding:8px}
+            .auth-info p{margin:2px 0}
+            #login-form .form-group{margin-bottom:8px}
+            .header{padding:.5rem .75rem}
+            .logo{width:32px;height:32px;font-size:14px}
+            .brand h1{font-size:.9rem}
+            .brand p{font-size:9px}
+            .main-tabs{padding:5px;gap:4px}
+            .main-tab{min-width:70px;padding:6px 10px;font-size:10px}
+            .dashboard-cards{gap:6px}
+            .dashboard-card{padding:.5rem}
+            .dashboard-card h3{font-size:10px;margin-bottom:4px}
+            .dashboard-card .value{font-size:1rem}
+            .grid-2{gap:.75rem}
+            .panel{padding:.75rem;margin-bottom:.75rem}
+            .panel-title{font-size:1rem;margin-bottom:10px}
+            .sale-item{padding:8px 0;font-size:12px}
+            .sale-total{font-size:1rem;margin-top:10px;padding-top:10px}
+            #video{min-height:150px;max-height:200px}
+            #scan-region{height:100px}
+            .scanner-controls{margin-top:8px}
+            .data-actions{gap:6px;margin-top:10px;padding-top:8px}
+            .app-footer{margin-top:1rem;padding:.5rem}
+        }
+
+        /* ─── Very short landscape ─── */
+        @media(max-height:400px) and (orientation:landscape){
+            .auth-box{padding:.7rem;max-width:85vw}
+            .auth-logo{width:30px;height:30px;font-size:14px;margin-bottom:6px}
+            .auth-title{font-size:.9rem;margin-bottom:6px}
+            #login-form .form-group{margin-bottom:4px}
+            .auth-info{display:none}
+            .header{display:none}
+        }
+
+        /* ─── Touch devices (no hover) ─── */
         @media(hover:none)and(pointer:coarse){
             .btn,.main-tab,.category-btn{cursor:default}
             input,select,textarea{font-size:16px!important}
+            .btn:active{transform:scale(.97)}
+            .main-tab:active{transform:scale(.96)}
+            .qr-card:active{transform:scale(.98)}
         }
+
+        /* ─── Reduced motion ─── */
         @media(prefers-reduced-motion:reduce){
             *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
         }
@@ -200,7 +306,7 @@
             <div id="auth-error" class="auth-error"></div>
             <div class="auth-info">
                 <p><strong><i class="fas fa-info-circle"></i> Accès:</strong></p>
-                <p>👑 <strong>Administrateur:</strong> admin / admin123 → Tous les onglets</p>
+                <p>👑 <strong>Administrateur:</strong> [masqué] → Tous les onglets</p>
                 <p>👤 <strong>Utilisateur:</strong> user / user1 → Scanner uniquement</p>
             </div>
         </div>
@@ -210,7 +316,7 @@
         <div class="header">
             <div class="logo-section">
                 <div class="logo">K</div>
-                <div class="brand"><h1>BOUTIQUE RANCOVEX</h1><p>Système intégré de gestion</p></div>
+                <div class="brand"><h1>RANCOVEX</h1><p>Système intégré de gestion</p></div>
             </div>
             <div class="header-actions">
                 <div class="user-info" id="user-info">
@@ -350,23 +456,23 @@
             <div class="grid-2">
                 <div class="panel">
                     <h3 class="panel-title"><i class="fas fa-address-card"></i> Nos coordonnées</h3>
-                    <p><i class="fas fa-store" style="color:var(--primary)"></i> <strong>Boutique RANCOVEX</strong></p>
+                    <p><i class="fas fa-store" style="color:var(--primary)"></i> <strong>RANCOVEX</strong></p>
                     <p><i class="fas fa-map-marker-alt" style="color:var(--secondary)"></i> Rue du Commerce, Lomé, Togo</p>
-                    <p><i class="fas fa-phone" style="color:var(--success)"></i> +228 92 87 16 05</p>
+                    <p><i class="fas fa-phone" style="color:var(--success)"></i> +228 98 48 99 74</p>
                     <p><i class="fas fa-envelope" style="color:var(--info)"></i> jeanskodoc22@gmail.com</p>
-                    <hr style="margin:12px 0;border-color:var(--gray-200)">
+                    <hr style="margin:12px 0;border-color:var(--border-panel)">
                     <p><i class="fas fa-clock" style="color:var(--warning)"></i> <strong>Horaires</strong></p>
                     <p>📅 Lundi - Vendredi: 8h - 20h</p><p>📅 Samedi: 9h - 20h</p><p>📅 Dimanche: 9h - 16h</p>
                 </div>
                 <div class="panel">
                     <h3 class="panel-title"><i class="fas fa-comments"></i> Nous contacter</h3>
-                    <a href="https://wa.me/22892871605" target="_blank" class="btn btn-whatsapp" style="width:100%;margin-bottom:10px"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="tel:+22892871605" class="btn btn-primary" style="width:100%;margin-bottom:10px"><i class="fas fa-phone"></i> Appeler</a>
+                    <a href="https://wa.me/22898489974" target="_blank" class="btn btn-whatsapp" style="width:100%;margin-bottom:10px"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="tel:+22898489974" class="btn btn-primary" style="width:100%;margin-bottom:10px"><i class="fas fa-phone"></i> Appeler</a>
                     <div class="alert alert-info"><i class="fas fa-headset"></i><div>Service client disponible 7j/7</div></div>
                 </div>
             </div>
         </div>
-        <div class="app-footer"><p>&copy; 2026 Boutique RANCOVEX - Tous droits réservés</p></div>
+        <div class="app-footer"><p>&copy; 2025 RANCOVEX - Tous droits réservés</p></div>
     </div>
 
     <script>
@@ -566,14 +672,14 @@
         function printAllQRCodes(){
             if(userRole!=='admin'){showLockOverlay('products');return}
             const w=window.open('','_blank');
-            let html=`<html><head><title>QR Codes - Boutique KOLA</title><style>
+            let html=`<html><head><title>QR Codes - RANCOVEX</title><style>
                 body{font-family:Arial,sans-serif;padding:20px;text-align:center}
                 h1{color:#7C3AED}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
                 .card{text-align:center;border:1px solid #ddd;padding:15px;border-radius:10px;page-break-inside:avoid}
                 .card img{max-width:150px}
                 @media print{@page{margin:10mm}.grid{grid-template-columns:repeat(4,1fr)}}
                 @media(max-width:768px){.grid{grid-template-columns:repeat(2,1fr)}}
-            </style></head><body><h1>🏪 Boutique KOLA - QR Codes</h1><div class="grid">`;
+            </style></head><body><h1>🏪 RANCOVEX - QR Codes</h1><div class="grid">`;
             const ids=Object.keys(products);
             if(ids.length===0){html+='<p>Aucun produit</p>'}
             ids.forEach(id=>{
@@ -661,7 +767,7 @@
             msg+=`%0A💰 *TOTAL: ${total.toLocaleString()} FCFA*%0A%0A📅 ${new Date().toLocaleString()}`;
             salesHistory.push({timestamp:Date.now(),items:[...currentSale],total});
             saveData();currentSale=[];updateSaleDisplay();updateDashboard();updateCharts();renderSalesJournal();renderQRCodes();updateTopProducts();
-            window.open(`https://wa.me/22892871605?text=${msg}`,'_blank');
+            window.open(`https://wa.me/22898489974?text=${msg}`,'_blank');
             showToast('✅ Vente enregistrée !');
         }
 
@@ -672,7 +778,7 @@
             let msg=`🛍️ *NOUVELLE COMMANDE* 🛍️%0A%0A👤 *Client:* ${name}%0A📱 *WhatsApp:* ${wa}%0A📍 *Région:* ${region}%0A🏙️ *Ville:* ${city}%0A📬 *Adresse:* ${addr}%0A`;
             if(items)msg+=`%0A📦 *Articles:*%0A${items}%0A`;
             msg+=`%0A📅 ${new Date().toLocaleString()}`;
-            window.open(`https://wa.me/22892871605?text=${msg}`,'_blank');
+            window.open(`https://wa.me/22898489974?text=${msg}`,'_blank');
             showToast('✅ Commande envoyée !');
             ['order-name','order-whatsapp','order-city','order-address','order-items'].forEach(id=>$(id).value='');
             $('order-region').value='';
@@ -683,7 +789,7 @@
             const data={products,salesHistory,exportDate:new Date().toISOString(),version:"1.0"};
             const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
             const url=URL.createObjectURL(blob);
-            const a=document.createElement('a');a.href=url;a.download=`boutique-kola-${new Date().toISOString().slice(0,19)}.json`;
+            const a=document.createElement('a');a.href=url;a.download=`rancovex-${new Date().toISOString().slice(0,19)}.json`;
             document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
             showToast('✅ Données exportées !');
         }
