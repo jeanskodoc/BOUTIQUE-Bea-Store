@@ -354,7 +354,7 @@
             <div class="form-group"><label>Description</label><textarea id="reg-desc" rows="2" placeholder="Décrivez votre boutique"></textarea></div>
             <div class="checkbox-row"><input type="checkbox" id="reg-terms"><label for="reg-terms">J'accepte les conditions d'utilisation</label></div>
             <button class="btn btn-whatsapp mt-sm" id="reg-send"><i class="fab fa-whatsapp"></i> Envoyer la demande</button>
-            <p class="text-muted text-center mt-sm">Votre demande sera envoyée au +228 92 87 16 05</p>
+            <p class="text-muted text-center mt-sm">Votre demande sera envoyée au 98 48 99 74</p>
         </div>
     </div>
     <footer><p>Service client: 98 48 99 74 &middot; Livraison sous 24-48h</p></footer>
@@ -510,7 +510,7 @@
         const items = getOrderItems();
         let totalQty = 0, subtotal = 0;
         items.forEach(i => { totalQty += i.quantity; subtotal += i.quantity * (+i.price); });
-        const delivery = 2000;
+        const delivery = 1000;
         $('#ord-count').textContent = totalQty;
         $('#ord-subtotal').textContent = subtotal.toLocaleString() + ' FCFA';
         $('#ord-total').textContent = (subtotal + delivery).toLocaleString() + ' FCFA';
@@ -537,12 +537,12 @@
         msg += '\n📦 *Articles*\n';
         let total = 0;
         items.forEach(i => { msg += `• ${i.name} (${i.quantity} x ${(+i.price).toLocaleString()} FCFA) = ${(i.quantity*+i.price).toLocaleString()} FCFA\n`; total += i.quantity * +i.price; });
-        msg += `\n💰 Sous-total: ${total.toLocaleString()} FCFA\n🚚 Livraison: 1 000 FCFA\n💵 TOTAL: ${(total+2000).toLocaleString()} FCFA\n\n📅 ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}`;
+        msg += `\n💰 Sous-total: ${total.toLocaleString()} FCFA\n🚚 Livraison: 1 000 FCFA\n💵 TOTAL: ${(total+1000).toLocaleString()} FCFA\n\n📅 ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}`;
         window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`,'_blank');
     });
 
-    $('#pay-esodi').addEventListener('click', () => { window.open('https://cvl2togo.netlify.app/','_blank'); notify('Portail ESODI ouvert','success'); });
-    $('#pay-YAS').addEventListener('click', () => notify(`Transférez à 93 31 60 63 via T-Money / Yas`,'success'));
+    $('#pay-esodi').addEventListener('click', () => { window.open('https://jeanskodoc.github.io/Carte-virtuelle-/','_blank'); notify('Portail ESODI ouvert','success'); });
+    $('#pay-tmoney').addEventListener('click', () => notify(`Transférez à 98 48 99 74 via T-Money / Yas`,'success'));
     $('#pay-flooz').addEventListener('click', () => notify(`Transférez à 98 48 99 74 via Flooz`,'success'));
 
     // Register
