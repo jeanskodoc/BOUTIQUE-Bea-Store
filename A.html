@@ -274,8 +274,8 @@
             <div class="summary">
                 <div class="summary-row"><span>Articles</span><span id="ord-count">0</span></div>
                 <div class="summary-row"><span>Sous-total</span><span id="ord-subtotal">0 FCFA</span></div>
-                <div class="summary-row"><span>Livraison</span><span>2 000 FCFA</span></div>
-                <div class="summary-total"><span>Total</span><span id="ord-total">2 000 FCFA</span></div>
+                <div class="summary-row"><span>Livraison</span><span>1 000 FCFA</span></div>
+                <div class="summary-total"><span>Total</span><span id="ord-total">1 000 FCFA</span></div>
             </div>
             <div class="checkbox-row"><input type="checkbox" id="ord-confirm"><label for="ord-confirm">Je confirme mes informations</label></div>
             <div class="flex" style="flex-direction:column;gap:6px;margin-top:8px">
@@ -537,7 +537,7 @@
         msg += '\n📦 *Articles*\n';
         let total = 0;
         items.forEach(i => { msg += `• ${i.name} (${i.quantity} x ${(+i.price).toLocaleString()} FCFA) = ${(i.quantity*+i.price).toLocaleString()} FCFA\n`; total += i.quantity * +i.price; });
-        msg += `\n💰 Sous-total: ${total.toLocaleString()} FCFA\n🚚 Livraison: 2 000 FCFA\n💵 TOTAL: ${(total+2000).toLocaleString()} FCFA\n\n📅 ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}`;
+        msg += `\n💰 Sous-total: ${total.toLocaleString()} FCFA\n🚚 Livraison: 1 000 FCFA\n💵 TOTAL: ${(total+2000).toLocaleString()} FCFA\n\n📅 ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}`;
         window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`,'_blank');
     });
 
