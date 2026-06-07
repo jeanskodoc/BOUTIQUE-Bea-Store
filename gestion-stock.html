@@ -610,6 +610,11 @@ Compta.getSolde=function(numero,dateFin){
   if(!c)return debit-credit;
   return(c.type==='actif'||c.type==='charge')?debit-credit:credit-debit;
 };
+Compta.getSoldeNature=function(numero){
+  var c=DB.all('plan_comptable').find(function(c){return c.numero===numero});
+  if(!c)return 'debiteur';
+  return(c.type==='actif'||c.type==='charge')?'debiteur':'crediteur';
+};
 Compta.addEcriture=function(d){
   return DB.add('journal',{
     date:d.date||today(),libelle:d.libelle||'',compteDebit:d.compteDebit||'',compteCredit:d.compteCredit||'',
@@ -895,15 +900,17 @@ render:function(){
       solde+=(nature==='crediteur'?mc-md:md-mc);
       return'<tr><td>'+formatDate(e.date)+'</td><td>'+esc(e.libelle)+'</td><td class="text-right">'+(md?ef(md):'')+'</td><td class="text-right">'+(mc?ef(mc):'')+'</td><td style="font-weight:600">'+ef(solde)+'</td></tr>'
     }).join('');
-    return'<h3 class="section-title">'+esc(cpt.numero)+' - '+esc(cpt.intitule)+'</h3><div class="table-wrapper" style="margin-bottom:16px"><div class="table-scroll"><table><thead><tr><th>Date</th><th>Libelle</th><th>Debit</th><th>Credit</th><th>Solde</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>'
+    return'<div class="gl-section"><h3 class="section-title">'+esc(cpt.numero)+' - '+esc(cpt.intitule)+'</h3><div class="table-wrapper" style="margin-bottom:16px"><div class="table-scroll"><table><thead><tr><th>Date</th><th>Libelle</th><th>Debit</th><th>Credit</th><th>Solde</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>'
   }).filter(function(s){return s}).join('');
   c.innerHTML='<div class="search-bar"><input type="text" id="search-gl" placeholder="Filtrer..." oninput="filtrerGL()"></div><div id="gl-content">'+(fils||'<div class="empty-state"><span class="icon">&#128214;</span>Aucune ecriture</div>')+'</div>'
 }};
 function filtrerGL(){
   var q=document.getElementById('search-gl').value.toLowerCase();
-  document.querySelectorAll('#gl-content h3,#gl-content .table-wrapper').forEach(function(el){
-    if(el.tagName==='H3'){var s=el.textContent.toLowerCase().includes(q);el.style.display=s?'':'none'}
-    if(el.classList&&el.classList.contains('table-wrapper'))el.style.display=q?document.querySelector('h3[style*="display: none"]')?'none':'':''
+  document.querySelectorAll('#gl-content .gl-section').forEach(function(el){
+    var h3=el.querySelector('h3');
+    if(!h3)return;
+    var visible=h3.textContent.toLowerCase().includes(q);
+    el.style.display=visible?'':'none';
   })
 }
 
