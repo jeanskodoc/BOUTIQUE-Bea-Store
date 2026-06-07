@@ -672,14 +672,14 @@
         function printAllQRCodes(){
             if(userRole!=='admin'){showLockOverlay('products');return}
             const w=window.open('','_blank');
-            let html=`<html><head><title>QR Codes - RANCOVEX</title><style>
+            let html=`<html><head><title>QR Codes - Bea-Store</title><style>
                 body{font-family:Arial,sans-serif;padding:20px;text-align:center}
                 h1{color:#7C3AED}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
                 .card{text-align:center;border:1px solid #ddd;padding:15px;border-radius:10px;page-break-inside:avoid}
                 .card img{max-width:150px}
                 @media print{@page{margin:10mm}.grid{grid-template-columns:repeat(4,1fr)}}
                 @media(max-width:768px){.grid{grid-template-columns:repeat(2,1fr)}}
-            </style></head><body><h1>🏪 RANCOVEX - QR Codes</h1><div class="grid">`;
+            </style></head><body><h1>🏪 Bea-Store - QR Codes</h1><div class="grid">`;
             const ids=Object.keys(products);
             if(ids.length===0){html+='<p>Aucun produit</p>'}
             ids.forEach(id=>{
@@ -778,7 +778,7 @@
             let msg=`🛍️ *NOUVELLE COMMANDE* 🛍️%0A%0A👤 *Client:* ${name}%0A📱 *WhatsApp:* ${wa}%0A📍 *Région:* ${region}%0A🏙️ *Ville:* ${city}%0A📬 *Adresse:* ${addr}%0A`;
             if(items)msg+=`%0A📦 *Articles:*%0A${items}%0A`;
             msg+=`%0A📅 ${new Date().toLocaleString()}`;
-            window.open(`https://wa.me/22898489974?text=${msg}`,'_blank');
+            window.open(`https://wa.me/22892871605?text=${msg}`,'_blank');
             showToast('✅ Commande envoyée !');
             ['order-name','order-whatsapp','order-city','order-address','order-items'].forEach(id=>$(id).value='');
             $('order-region').value='';
