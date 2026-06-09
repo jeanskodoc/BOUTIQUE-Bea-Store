@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <meta name="description" content="RANCOVEX - Système intégré de gestion des ventes, commandes et inventaire">
+    <meta name="description" content="Bea-Store - Système intégré de gestion des ventes, commandes et inventaire">
     <meta name="theme-color" content="#7C3AED">
     <title>Bea-Store-Système Intégré</title>
     <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
@@ -307,7 +307,7 @@
             <div class="auth-info">
                 <p><strong><i class="fas fa-info-circle"></i> Accès:</strong></p>
                 <p>👑 <strong>Administrateur:</strong> [masqué] → Tous les onglets</p>
-                <p>👤 <strong>Utilisateur:</strong> user / user1 → Scanner uniquement</p>
+                <p>👤 <strong>Utilisateur:</strong> user / user1 → Scanner + Produits (import/export JSON)</p>
             </div>
         </div>
     </div>
@@ -785,27 +785,26 @@
         }
 
         function exportJson(){
-            if(userRole!=='admin'){showLockOverlay('products');return}
             const data={products,salesHistory,exportDate:new Date().toISOString(),version:"1.0"};
             const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
             const url=URL.createObjectURL(blob);
-            const a=document.createElement('a');a.href=url;a.download=`rancovex-${new Date().toISOString().slice(0,19)}.json`;
+            const a=document.createElement('a');a.href=url;a.download=`bea-store-${new Date().toISOString().slice(0,19)}.json`;
             document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
             showToast('✅ Données exportées !');
         }
         function importJson(e){
-            if(userRole!=='admin'){showLockOverlay('products');return}
             const file=e.target.files[0];if(!file)return;
             const reader=new FileReader();
             reader.onload=function(ev){
                 try{
                     const data=JSON.parse(ev.target.result);
-                    if(confirm('⚠️ L\'importation remplacera toutes les données. Continuer ?')){
-                        if(data.products)products=data.products;
-                        if(data.salesHistory)salesHistory=data.salesHistory;
-                        saveData();renderQRCodes();updateDashboard();updateCharts();renderSalesJournal();updateTopProducts();
-                        showToast('✅ Données importées !');
-                    }
+                    if(!data.products&&!data.salesHistory){showToast('❌ Fichier JSON invalide','error');return}
+                    const hasData=Object.keys(products).length>0||salesHistory.length>0;
+                    if(hasData&&!confirm('⚠️ L\'importation remplacera toutes les données actuelles. Continuer ?'))return;
+                    if(data.products)products=data.products;
+                    if(data.salesHistory)salesHistory=data.salesHistory;
+                    saveData();renderQRCodes();updateDashboard();updateCharts();renderSalesJournal();updateTopProducts();
+                    showToast('✅ Données importées !');
                 }catch(err){showToast('❌ Fichier JSON invalide','error')}
             };
             reader.readAsText(file);e.target.value='';
